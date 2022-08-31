@@ -1,0 +1,4 @@
+(executable
+ (name main)
+ (public_name all)
+ (libraries advent_of_code base))
