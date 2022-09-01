@@ -19,7 +19,7 @@ let jin_string str = String (String.split_lines str, ref 0)
 let jin_file file_path = File (file_path, Caml.In_channel.open_text file_path)
 let jin_stdin () = Stdin
 
-let read_generic chan f =
+let read_generic chan ~f =
   let rec aux ns =
     try
       let line = jin_input_line chan in
@@ -28,4 +28,4 @@ let read_generic chan f =
   in
   List.rev (aux [])
 
-let read_as_ints chan = read_generic chan Caml.int_of_string_opt
+let read_as_ints = read_generic ~f:Caml.int_of_string_opt

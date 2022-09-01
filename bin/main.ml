@@ -19,7 +19,7 @@ let day_01 () =
 
 let day_02 () =
   let directions =
-    read_generic (jin_file "inputs/day_02.txt") Day02.read_directions
+    read_generic (jin_file "inputs/day_02.txt") ~f:Day02.read_directions
   in
 
   (* Exercise 1 *)
@@ -32,6 +32,16 @@ let day_02 () =
   print_int (Day02.exercise_two directions);
   print_newline ()
 
+let day_03 () =
+  let report =
+    read_generic (jin_file "inputs/day_03.txt") ~f:Day03.reader in
+  
+  (* Exercise 1 *)
+  print_intro 3 1;
+  print_int (Day03.exercise_one report);
+  print_newline ()
+
 let () =
   day_01 ();
-  day_02 ()
+  day_02 ();
+  day_03 ()
